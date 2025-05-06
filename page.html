@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connect</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            display: flex;
+        }
+
+        .sidebar {
+            background-color: #f0f0f0;
+            padding: 20px;
+            width: 200px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .sidebar h2 {
+            margin-bottom: 20px;
+        }
+
+        .sidebar button {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: none;
+            background: none;
+            cursor: pointer;
+            width: 100%;
+            text-align: left;
+        }
+
+        .sidebar button svg {
+            margin-right: 10px;
+            /* Anda perlu menambahkan ikon SVG di sini atau menggunakan font ikon */
+        }
+
+        .container {
+            flex-grow: 1;
+            padding: 20px;
+        }
+
+        .search-bar {
+            margin-bottom: 20px;
+        }
+
+        .search-bar input[type="text"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 300px;
+        }
+
+        .user-card {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .user-info {
+            flex-grow: 1;
+        }
+
+        .user-info h3 {
+            margin-top: 0;
+            margin-bottom: 5px;
+        }
+
+        .user-info p {
+            margin-bottom: 5px;
+            color: #777;
+            font-size: 0.9em;
+        }
+
+        .user-info span {
+            background-color: #e0e0e0;
+            color: #555;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-size: 0.8em;
+            margin-right: 5px;
+        }
+
+        .user-status {
+            font-weight: bold;
+        }
+
+        .status-aktif {
+            color: green;
+        }
+
+        .status-suspended {
+            color: red;
+        }
+
+        .add-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 1.5em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Connect</h2>
+        <button>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+            </svg>
+            User
+        </button>
+        <button>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-key-fill" viewBox="0 0 16 16">
+                <path d="M3.5 11.5a3.5 3.5 0 1 1 3.163-5H14L15.5 8 14 9.5l-1-1-1 1-1-1-1 1-1-1-1 1H6.663a3.5 3.5 0 0 1-3.163 5zM2.5 9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1v2h-1z"/>
+            </svg>
+            Hak Akses
+        </button>
+        <button>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-left" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 0-.5.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5zM1 2.5A1.5 1.5 0 0 1 2.5 1h8A1.5 1.5 0 0 1 12 2.5v9A1.5 1.5 0 0 1 10.5 13h-8A1.5 1.5 0 0 1 1 11.5v-9z"/>
+                <path fill-rule="evenodd" d="M13.854 8.354a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 0-.5-.5H9.828l-2.057 2.057a.5.5 0 0 0 0 .707l2.057 2.057H13.854a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 0-.5-.5z"/>
+            </svg>
+            Logout
+        </button>
+    </div>
+    <div class="container">
+        <div class="search-bar">
+            <input type="text" placeholder="Cari user">
+        </div>
+
+        <div class="user-card">
+            <div class="user-info">
+                <h3>Rahmat Saudi Al Fathir As</h3>
+                <p>rahmatsaudi@universitasmulia.ac.id</p>
+                <span>Admin</span> <span>Employee</span>
+            </div>
+            <div class="user-status status-aktif">Aktif</div>
+        </div>
+
+        <div class="user-card">
+            <div class="user-info">
+                <h3>Lintang</h3>
+                <p>lintang@universitasmulia.ac.id</p>
+                <span>Employee</span>
+            </div>
+            <div class="user-status status-aktif">Aktif</div>
+        </div>
+
+        <div class="user-card">
+            <div class="user-info">
+                <h3>Shafira</h3>
+                <p>shafira@universitasmulia.ac.id</p>
+                <span>Employee</span>
+            </div>
+            <div class="user-status status-aktif">Aktif</div>
+        </div>
+
+        <div class="user-card">
+            <div class="user-info">
+                <h3>Lebah Ganteng</h3>
+                <p>lebahganteng@universitasmulia.ac.id</p>
+                <span>Employee</span>
+            </div>
+            <div class="user-status status-suspended">Suspended</div>
+        </div>
+
+        <button class="add-button">+</button>
+    </div>
+</body>
+</html>
